@@ -40,7 +40,18 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
 // var deadline = 'November 8 2019';
-var deadline = new Date(2019, 10, 8, 15, 35);
+// var deadline = new Date(2019, 10, 8, 15, 35);
+var deadline = new Date(getParameterByName('deadline'));
 initializeClock('clockdiv', deadline);
