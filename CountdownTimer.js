@@ -22,6 +22,9 @@ function initializeClock(id, endtime) {
   
   var endtimeSpan = clock.querySelector('.endtime');  
   endtimeSpan.innerHTML = endtime;
+  
+  var headingSpan = clock.querySelector('.heading');  
+  headingSpan.innerHTML = heading;
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
@@ -54,6 +57,7 @@ function getParameterByName(name, url) {
 // var deadline = 'November 8 2019';
 // var deadline = new Date(2019, 10, 8, 15, 35);
 
+var heading = getParameterByName('title');
 var year = getParameterByName('year');
 var month = getParameterByName('month');
 var day = getParameterByName('day');
