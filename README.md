@@ -5,4 +5,6 @@ Article: https://www.sitepoint.com/build-javascript-countdown-timer-no-dependenc
 
 Their example: https://codepen.io/SitePoint/pen/MwNPVq
 
-This example: https://mwynwood.github.io/Countdown-Timer/
+In this example, I've added some code so that you can specify the deadline from the querystring:
+
+https://mwynwood.github.io/Countdown-Timer/?year=2019&month=10&day=8&hour=15&minute=35
