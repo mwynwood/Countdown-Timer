@@ -57,7 +57,7 @@ function getParameterByName(name, url) {
 // var deadline = 'November 8 2019';
 // var deadline = new Date(2019, 10, 8, 15, 35);
 
-var heading = getParameterByName('title');
+var heading = getParameterByName('heading');
 var year = getParameterByName('year');
 var month = getParameterByName('month');
 var day = getParameterByName('day');
