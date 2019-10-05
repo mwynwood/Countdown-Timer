@@ -53,5 +53,12 @@ function getParameterByName(name, url) {
 // var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
 // var deadline = 'November 8 2019';
 // var deadline = new Date(2019, 10, 8, 15, 35);
-var deadline = new Date(getParameterByName('deadline'));
+
+var year = getParameterByName('year');
+var month = getParameterByName('month');
+var day = getParameterByName('day');
+var hour = getParameterByName('hour');
+var minute = getParameterByName('minute');
+var deadline = new Date(year, month, day, hour, minute);
+
 initializeClock('clockdiv', deadline);
