@@ -19,6 +19,9 @@ function initializeClock(id, endtime) {
   var hoursSpan = clock.querySelector('.hours');
   var minutesSpan = clock.querySelector('.minutes');
   var secondsSpan = clock.querySelector('.seconds');
+  
+  var endtimeSpan = clock.querySelector('.endtime');  
+  endtimeSpan.innerHTML = endtime;
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
