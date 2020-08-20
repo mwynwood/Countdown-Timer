@@ -7,4 +7,4 @@ Their example: https://codepen.io/SitePoint/pen/MwNPVq
 
 In this example, I've added some code so that you can specify the deadline from the querystring:
 
-https://mwynwood.github.io/Countdown-Timer/?year=2019&month=11&day=25&hour=0&minute=0&heading=Christmas
+https://mwynwood.github.io/Countdown-Timer/?year=2021&month=11&day=25&hour=0&minute=0&heading=Christmas
