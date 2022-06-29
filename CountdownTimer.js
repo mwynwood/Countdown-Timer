@@ -1,46 +1,59 @@
+// https://mwynwood.github.io/Countdown-Timer/?year=2022&month=5&day=29&hour=11&minute=30&heading=Exam%20Timer
+
 function getTimeRemaining(endtime) {
-  var t = Date.parse(endtime) - Date.parse(new Date());
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  return {
-    'total': t,
-    'days': days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
-  };
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+    };
 }
 
 function initializeClock(id, endtime) {
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
-  
-  var endtimeSpan = clock.querySelector('.endtime');  
-  endtimeSpan.innerHTML = endtime;
-  
-  var headingSpan = clock.querySelector('.heading');  
-  headingSpan.innerHTML = heading;
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
 
-  function updateClock() {
-    var t = getTimeRemaining(endtime);
+    var endtimeSpan = clock.querySelector('.endtime');
+    endtimeSpan.innerHTML = endtime;
 
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+    var headingSpan = clock.querySelector('.heading');
+    headingSpan.innerHTML = heading;
 
-    if (t.total <= 0) {
-      clearInterval(timeinterval);
+    function updateClock() {
+        var t = getTimeRemaining(endtime);
+
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+        if (t.total <= 0) {
+            clearInterval(timeinterval);
+        }
+
+        // Hide sections as they hit 0
+        if (daysSpan.innerHTML <= 0) {
+            daysSpan.parentElement.style.display = 'none';
+        }
+        if (hoursSpan.innerHTML <= 0) {
+            hoursSpan.parentElement.style.display = 'none';
+        }
+        if (minutesSpan.innerHTML <= 0) {
+            minutesSpan.parentElement.style.display = 'none';
+        }
     }
-  }
 
-  updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
 }
 
 function getParameterByName(name, url) {
