@@ -41,6 +41,14 @@ function initializeClock(id, endtime) {
         // Hide sections as they hit 0
         if (daysSpan.innerHTML <= 0) {
             daysSpan.parentElement.style.display = 'none';
+
+            if (hoursSpan.innerHTML <= 0) {
+                hoursSpan.parentElement.style.display = 'none';
+
+                if (minutesSpan.innerHTML <= 0) {
+                    minutesSpan.parentElement.style.display = 'none';
+                }
+            }
         }
     }
 
