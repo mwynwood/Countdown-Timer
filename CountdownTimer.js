@@ -1,3 +1,5 @@
+// ?year=2022&month=5&day=29&hour=11&minute=0&heading=Heading
+
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
     var seconds = Math.floor((t / 1000) % 60);
@@ -41,15 +43,14 @@ function initializeClock(id, endtime) {
         // Hide sections as they hit 0
         if (daysSpan.innerHTML <= 0) {
             daysSpan.parentElement.style.display = 'none';
-
             if (hoursSpan.innerHTML <= 0) {
                 hoursSpan.parentElement.style.display = 'none';
-
                 if (minutesSpan.innerHTML <= 0) {
                     minutesSpan.parentElement.style.display = 'none';
                 }
             }
         }
+
     }
 
     updateClock();
